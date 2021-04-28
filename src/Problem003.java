@@ -1,15 +1,45 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
-public class Problem003 {
+import services.TaskSolution;
 
-	public static void main(String[] args) {
-		int[] arrA = {505181, 425449, 493689, 308213, 581192, 819056, 191146, 433578, 190900, 755130, 219471, 395867, 878130};
-		int[] arrB = {529838, 780439, 130894, 713383, 408182, 121887, 412277, 90320, 339380, 846935, 651652, 708794, 202780};
-		int[] result = new int[13];
-		
-		for (int i = 0; i < result.length; i++) {
-			result[i] = arrA[i] + arrB[i];
-			System.out.print(result[i] + " ");
+/**
+ * 
+ * @author dmitrij
+ *
+ */
+public class Problem003 extends TaskSolution{
+	List<Integer> listA = new ArrayList<Integer>();
+	List<Integer> listB = new ArrayList<Integer>();
+	List<Integer> result = new ArrayList<Integer>();
+	
+	
+	public void input(String s) {
+		StringTokenizer st = new StringTokenizer(s, " \n");
+		List<Integer> tempList = new ArrayList<Integer>();
+		while (st.hasMoreTokens()) {
+			tempList.add(Integer.parseInt(st.nextToken()));
+		}
+
+		for (int item : tempList) {
+			if (tempList.indexOf(item) % 2 == 0)
+				this.listA.add(item);
+			else
+				this.listB.add(item);
 		}
 	}
-
+	
+	public void process() {
+		int summ;
+		for (int item : listA) {
+			summ = item + listB.get(listA.indexOf(item));
+			this.result.add(summ);
+		}
+	}
+	
+	public void output() {
+		for (int item : result)
+			System.out.print(item + " ");
+	}	
 }

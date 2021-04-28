@@ -4,46 +4,38 @@ import java.util.StringTokenizer;
 
 import services.TaskSolution;
 
-public class Problem005 extends TaskSolution{
+public class Problem004 extends TaskSolution{
 	List<Integer> listA = new ArrayList<Integer>();
 	List<Integer> listB = new ArrayList<Integer>();
-	List<Integer> listC = new ArrayList<Integer>();
 	List<Integer> result = new ArrayList<Integer>();
 	
 	
 	public void input(String s) {
 		StringTokenizer st = new StringTokenizer(s, " \n");
 		List<Integer> tempList = new ArrayList<Integer>();
-		
 		while (st.hasMoreTokens()) {
 			tempList.add(Integer.parseInt(st.nextToken()));
 		}
 
 		for (int item : tempList) {
-			if (tempList.indexOf(item) % 3 == 0)
+			if (tempList.indexOf(item) % 2 == 0)
 				this.listA.add(item);
-			else if (tempList.indexOf(item) % 3 == 1)
-				this.listB.add(item);
 			else
-				this.listC.add(item);
+				this.listB.add(item);
 		}
 	}
 	
 	public void process() {
 		for (int i = 0; i < this.listA.size(); i++) {
-			this.result.add( minimum( this.listA.get(i), minimum( this.listB.get(i), this.listC.get(i) ) ) );
+			if (this.listA.get(i) < this.listB.get(i))
+				this.result.add(this.listA.get(i));
+			else
+				this.result.add(this.listB.get(i));
 		}
 	}
 	
 	public void output() {
 		for (int item : result)
 			System.out.print(item + " ");
-	}
-	
-	public int minimum(int a, int b) {
-		if (a < b)
-			return a;
-		else
-			return b;
 	}
 }

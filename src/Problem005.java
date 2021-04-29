@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 import services.TaskSolution;
 
 public class Problem005 extends TaskSolution{
-	List<Integer> listA = new ArrayList<Integer>();
+	List<Integer> listA = new ArrayList<Integer>(); // TODO: listA -> inputListA
 	List<Integer> listB = new ArrayList<Integer>();
 	List<Integer> listC = new ArrayList<Integer>();
 	List<Integer> result = new ArrayList<Integer>();

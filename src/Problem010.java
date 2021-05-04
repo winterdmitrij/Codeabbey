@@ -9,7 +9,7 @@ import services.TaskSolution;
  * @author comline
  *
  */
-public class Problem010 extends TaskSolution{				//NOCH NICHT FUNKTIONIERT!!!!
+public class Problem010 extends TaskSolution{
 	List<Integer> inputList = new ArrayList<Integer>();
 	List<Integer> result = new ArrayList<Integer>();
 	final int MIN = -10, MAX = 10;
@@ -24,7 +24,7 @@ public class Problem010 extends TaskSolution{				//NOCH NICHT FUNKTIONIERT!!!!
 
 	@Override
 	protected void process() {
-		int x1, y1, x2, y2, b1, b2;
+		int x1, y1, x2, y2, a, b;
 		
 		for ( int i = 0; i < this.inputList.size(); i += 4 ) {
 			x1 = this.inputList.get(i);
@@ -32,15 +32,10 @@ public class Problem010 extends TaskSolution{				//NOCH NICHT FUNKTIONIERT!!!!
 			x2 = this.inputList.get(i+2);
 			y2 = this.inputList.get(i+3);
 			
-			for ( int a = this.MIN; a <= this.MAX; a++ ) {
-				b1 = ( y1 - a * x1 );
-				b2 = ( y2 - a * x2 );
-				if ( b1 == b2 ) {
-					this.result.add(a);
-					this.result.add(b1);
-					break;
-				}
-			}
+			a = ( y2 - y1 ) / ( x2 - x1 );
+			b = y1 - a * x1;
+			this.result.add( a );
+			this.result.add( b );
 		}
 	}
 

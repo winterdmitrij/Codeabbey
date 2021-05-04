@@ -8,7 +8,7 @@ import services.TaskSolution;
  * @author comline
  *
  */
-public class Problem016 extends TaskSolution{				//NOCH NICHT FUNKTIONIERT!!!!
+public class Problem016 extends TaskSolution{
 	List<String> inputList = new ArrayList<String>();
 	List<Integer> result = new ArrayList<Integer>();
 	

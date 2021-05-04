@@ -52,7 +52,24 @@ public class Problem016 extends TaskSolution{				//NOCH NICHT FUNKTIONIERT!!!!
 		for ( int item : arr ) {
 			summ += item;
 		}
-		// TODO Math.round funktioniert falsch !!!!!
-		return Math.round( summ / arr.length );
+
+		return round( (double) summ / arr.length );
+	}
+	
+	
+	public int round(double zahl) {
+		int tmpZahl = (int) (zahl * 10);
+		if (zahl > 0) {
+			if ( tmpZahl % 10 < 5 )
+				return tmpZahl / 10;
+			else
+				return tmpZahl / 10 + 1;
+		}
+		else {
+			if ( Math.abs(tmpZahl) % 10 < 5 )
+				return tmpZahl / 10;
+			else
+				return tmpZahl / 10 - 1;
+		}
 	}
 }

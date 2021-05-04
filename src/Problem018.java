@@ -9,7 +9,7 @@ import services.TaskSolution;
  * @author comline
  *
  */
-public class Problem018 extends TaskSolution{				//Noch nicht functioniert!!! 
+public class Problem018 extends TaskSolution{
 	List<Integer> inputList = new ArrayList<Integer>();
 	List<Integer> inputNumbersList = new ArrayList<Integer>();
 	List<Integer> inputCountOfStepsList = new ArrayList<Integer>();
@@ -46,10 +46,7 @@ public class Problem018 extends TaskSolution{				//Noch nicht functioniert!!!
 		System.out.println();
 		
 		for ( double item : this.result ) {
-			if ( (item % 1) != 0 )
-				System.out.printf( "%.3f ", item);		// Das braucht man gar nicht, sondern RESPLIT!!!!
-			else
-				System.out.print( (int) item + " " );
+			System.out.print( ( "" + item ).toString().replace(',', '.') + " " );
 		}
 	}
 

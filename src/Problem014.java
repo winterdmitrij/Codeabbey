@@ -9,15 +9,14 @@ import services.TaskSolution;
  *
  */
 public class Problem014 extends TaskSolution{				//Noch nicht functioniert!!! 
-	int startValue, result = 0;
+	long result = 0;										// LONG ist auch zu kurz!!!!
 	List<SignValue> inputList = new ArrayList<SignValue>();
 	
 	@Override
 	protected void input(String str) {
-		//StringTokenizer st = new StringTokenizer(str, " \n");
 		String[] tmpArr = str.split("\n");
 		
-		this.startValue = Integer.parseInt( tmpArr[0] );
+		this.result = Integer.parseInt( tmpArr[0] );
 		
 		for ( int i = 1; i < tmpArr.length; i++ ) {
 			String[] items = tmpArr[i].split(" ");
@@ -29,9 +28,10 @@ public class Problem014 extends TaskSolution{				//Noch nicht functioniert!!!
 	
 	@Override
 	protected void process() {
-		this.result = this.startValue;
+		//this.result = this.startValue;
 		
 		for ( SignValue item : this.inputList ) {
+			/*
 			switch( item.getSign() ) {
 			case '+':
 				this.result += item.getValue();
@@ -49,13 +49,22 @@ public class Problem014 extends TaskSolution{				//Noch nicht functioniert!!!
 				this.result %= item.getValue();
 				break;
 			}
+			*/
+			
+			if ( item.getSign() == '+' )
+				this.result += item.getValue();
+			else if ( item.getSign() == '*' )
+				this.result *= item.getValue();
+			else
+				this.result %= item.getValue();
+			System.out.print(this.result + ",  ");
 		}
 	}
 
 	
 	@Override
 	protected void output() {
-		System.out.println(this.startValue);
+		System.out.println();
 		System.out.println(this.inputList);
 		System.out.println("\n" + this.result);
 	}
